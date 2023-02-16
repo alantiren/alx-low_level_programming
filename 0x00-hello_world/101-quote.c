@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <unistd.h>
 /**
-* main - A program that prints a line with puts function
+* main - A program that prints a line to the standard error
 * Return: 1 (Success)
 */
 
