@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <unisted.h>
+#include <unistd.h>
 /**
 * main - A program that prints a line with puts function
 * Return: 1 (Success)
