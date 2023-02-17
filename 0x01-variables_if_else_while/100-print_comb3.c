@@ -1,39 +1,27 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 /**
-* main - main block
-* Description: Write a program that prints all possible different combinations of two digits
-* Numbers must be separeted by ,, followed by a space 
-* The two digits must be different
-* 01 and 10 are considered the same combination of the two digits 0 and 1
-* Print only the smallest combination of two digits 
-* Numbers should be printed in ascending order, with two digits
-* You can only use the putchar function
-* (every other function (printf, puts, etc...) is forbidden)
-* 
+* main - Entry block
 * Return: Always 0 (Success)
 */
 
 int main(void)
 {
-int c;
-int d = 0;
+int d, p;
 
-while (d < 10)
+for (d = '0'; d < '9'; d++)
 {
-c = 0;
+for (p = d + 1; p <= '9'; p++)
 }
-while (c < 10){
-if (d != c && d < c)
-putchar('0' + d);
-putchar('0' + c);
-if (c + d != 17)
+if (p !=d)
 {
+putchar(d);
+putchar(p);
+if (d == '8' && p == '9')
+continue;
 putchar(',');
-putchar(' ');
-}
-c++;
-d++;
+puchar(' ');
 }
 putchar('\n');
 return (0);
