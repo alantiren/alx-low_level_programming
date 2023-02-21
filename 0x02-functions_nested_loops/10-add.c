@@ -4,7 +4,7 @@
 * add - Adds two values
 * @n1: The first number to be computed
 * @n2: The second number to be computed
-* Returned: Interger value
+* Returned: Integer value
 */
 
 int add(int n1, int n2)
