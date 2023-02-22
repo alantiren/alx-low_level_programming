@@ -6,7 +6,7 @@
 * Return: Always 0.
 */
 
-void print_to_98(rint n)
+void print_to_98(int n)
 
 {
 
