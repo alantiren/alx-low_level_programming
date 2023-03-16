@@ -58,7 +58,6 @@ exit(98);
 */
 
 int main(int argc, char *argv[])
-
 {
 char *s1, *s2;
 int len1, len2, len, i, carry, digit1, digit2, *result, a = 0;
