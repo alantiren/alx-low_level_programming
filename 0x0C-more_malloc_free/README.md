@@ -167,7 +167,5 @@ num1 and num2 should only be composed of digits. If not, print Error, followed b
 
 		
 You are allowed to use more than 5 functions in your file
-		
-
-		
+	
 You can use bc (man bc) to check your results.
