@@ -50,11 +50,7 @@ void print_magic(unsigned char *e_ident)
 {
 	int index;
 
-<<<<<<< HEAD
-	printf(" Magic: ");
-=======
 	printf("  Magic:   ");
->>>>>>> 31c49b6cb13c6cfc63e4777c733bdf3b141f7d21
 
 	for (index = 0; index < EI_NIDENT; index++)
 	{
@@ -73,11 +69,7 @@ void print_magic(unsigned char *e_ident)
  */
 void print_class(unsigned char *e_ident)
 {
-<<<<<<< HEAD
-	printf(" Class: ");
-=======
 	printf("  Class:                             ");
->>>>>>> 31c49b6cb13c6cfc63e4777c733bdf3b141f7d21
 
 	switch (e_ident[EI_CLASS])
 	{
@@ -101,11 +93,7 @@ void print_class(unsigned char *e_ident)
  */
 void print_data(unsigned char *e_ident)
 {
-<<<<<<< HEAD
-	printf(" Data: ");
-=======
 	printf("  Data:                              ");
->>>>>>> 31c49b6cb13c6cfc63e4777c733bdf3b141f7d21
 
 	switch (e_ident[EI_DATA])
 	{
@@ -124,15 +112,6 @@ void print_data(unsigned char *e_ident)
 }
 
 /**
-<<<<<<< HEAD
- *  * print_version - Prints the version of an ELF header.
- *   * @e_ident: A pointer to an array containing the ELF version.
- *    */
-void print_version(unsigned char *e_ident)
-{
-	 printf(" Version: %d",
-			  e_ident[EI_VERSION]);
-=======
  * print_version - Prints the version of an ELF header.
  * @e_ident: A pointer to an array containing the ELF version.
  */
@@ -140,7 +119,6 @@ void print_version(unsigned char *e_ident)
 {
 	printf("  Version:                           %d",
 	       e_ident[EI_VERSION]);
->>>>>>> 31c49b6cb13c6cfc63e4777c733bdf3b141f7d21
 
 	switch (e_ident[EI_VERSION])
 	{
@@ -159,11 +137,7 @@ void print_version(unsigned char *e_ident)
  */
 void print_osabi(unsigned char *e_ident)
 {
-<<<<<<< HEAD
-	printf(" OS/ABI: ");
-=======
 	printf("  OS/ABI:                            ");
->>>>>>> 31c49b6cb13c6cfc63e4777c733bdf3b141f7d21
 
 	switch (e_ident[EI_OSABI])
 	{
@@ -208,13 +182,8 @@ void print_osabi(unsigned char *e_ident)
  */
 void print_abi(unsigned char *e_ident)
 {
-<<<<<<< HEAD
-	printf(" ABI Version: %d\n",
-		e_ident[EI_ABIVERSION]);
-=======
 	printf("  ABI Version:                       %d\n",
 	       e_ident[EI_ABIVERSION]);
->>>>>>> 31c49b6cb13c6cfc63e4777c733bdf3b141f7d21
 }
 
 /**
@@ -227,11 +196,7 @@ void print_type(unsigned int e_type, unsigned char *e_ident)
 	if (e_ident[EI_DATA] == ELFDATA2MSB)
 		e_type >>= 8;
 
-<<<<<<< HEAD
-	printf(" Type: ");
-=======
 	printf("  Type:                              ");
->>>>>>> 31c49b6cb13c6cfc63e4777c733bdf3b141f7d21
 
 	switch (e_type)
 	{
@@ -262,11 +227,7 @@ void print_type(unsigned int e_type, unsigned char *e_ident)
  */
 void print_entry(unsigned long int e_entry, unsigned char *e_ident)
 {
-<<<<<<< HEAD
-	printf(" Entry point address: ");
-=======
 	printf("  Entry point address:               ");
->>>>>>> 31c49b6cb13c6cfc63e4777c733bdf3b141f7d21
 
 	if (e_ident[EI_DATA] == ELFDATA2MSB)
 	{
@@ -300,22 +261,14 @@ void close_elf(int elf)
 
 /**
  * main - Displays the information contained in the
-<<<<<<< HEAD
- * ELF header at the start of an ELF file.
-=======
  *        ELF header at the start of an ELF file.
->>>>>>> 31c49b6cb13c6cfc63e4777c733bdf3b141f7d21
  * @argc: The number of arguments supplied to the program.
  * @argv: An array of pointers to the arguments.
  *
  * Return: 0 on success.
  *
  * Description: If the file is not an ELF File or
-<<<<<<< HEAD
- * the function fails - exit code 98.
-=======
  *              the function fails - exit code 98.
->>>>>>> 31c49b6cb13c6cfc63e4777c733bdf3b141f7d21
  */
 int main(int __attribute__((__unused__)) argc, char *argv[])
 {
