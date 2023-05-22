@@ -1,9 +1,5 @@
 #!/bin/bash
 
-#include <stdlib.h>
-#include <stdio.h>
-#include <unistd.h>
-int printf(const char *format, ...)
 {
 /* Code here
  * printing text here
