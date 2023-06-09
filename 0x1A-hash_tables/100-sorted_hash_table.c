@@ -47,13 +47,10 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 {
 unsigned long int index;
 shash_node_t *node, *new_node;
-
 if (ht == NULL || key == NULL || value == NULL)
 return (0);
-
 index = key_index((unsigned char *)key, ht->size);
 node = ht->array[index];
-
 while (node != NULL)
 {
 if (strcmp(node->key, key) == 0)
@@ -64,16 +61,13 @@ return (1);
 }
 node = node->next;
 }
-
 new_node = malloc(sizeof(shash_node_t));
 if (new_node == NULL)
 return (0);
-
 new_node->key = strdup(key);
 new_node->value = strdup(value);
 new_node->next = ht->array[index];
 ht->array[index] = new_node;
-
 if (ht->shead == NULL || strcmp(new_node->key, ht->shead->key) < 0)
 {
 new_node->sprev = NULL;
@@ -89,7 +83,6 @@ else
 node = ht->shead;
 while (node->snext != NULL && strcmp(new_node->key, node->snext->key) >= 0)
 node = node->snext;
-
 new_node->sprev = node;
 new_node->snext = node->snext;
 if (node->snext != NULL)
@@ -98,35 +91,32 @@ node->snext = new_node;
 if (ht->stail == node)
 ht->stail = new_node;
 }
-
 return (1);
 }
 
 /**
- * shash_table_get - Retrieves a value associated with a key in a sorted hash table.
+ * shash_table_get - Retrieves a value associated
+ * with a key in a sorted hash table.
  * @ht: The hash table to look into.
  * @key: The key to search for.
  *
- * Return: The value associated with the key, or NULL if key couldn't be found.
+ * Return: The value associated with the key,
+ * or NULL if key couldn't be found.
  */
 char *shash_table_get(const shash_table_t *ht, const char *key)
 {
 unsigned long int index;
 shash_node_t *node;
-
 if (ht == NULL || key == NULL)
 return (NULL);
-
 index = key_index((unsigned char *)key, ht->size);
 node = ht->array[index];
-
 while (node != NULL)
 {
 if (strcmp(node->key, key) == 0)
 return (node->value);
 node = node->next;
 }
-
 return (NULL);
 }
 
@@ -138,10 +128,8 @@ void shash_table_print(const shash_table_t *ht)
 {
 shash_node_t *node;
 int comma_flag = 0;
-
 if (ht == NULL)
 return;
-
 printf("{");
 node = ht->shead;
 while (node != NULL)
@@ -163,10 +151,8 @@ void shash_table_print_rev(const shash_table_t *ht)
 {
 shash_node_t *node;
 int comma_flag = 0;
-
 if (ht == NULL)
 return;
-
 printf("{");
 node = ht->stail;
 while (node != NULL)
