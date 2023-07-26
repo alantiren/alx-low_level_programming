@@ -1,27 +1,13 @@
-CC = gcc
-CFLAGS = -Wall -Werror -Wextra -pedantic
-SRC = main.c school.c
-OBJ = $(SRC:.c=.o)
-NAME = school
-RM = rm -f
+CC := gcc-9
+CFLAGS := -Wall -Wextra -std=c11
 
-all: $(NAME)
+all: program1 program2 program3
 
-$(NAME): $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+program1: main.c
+    $(CC) $(CFLAGS) -o $@ $<
 
-%.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+program2: school.c
+    $(CC) $(CFLAGS) -o $@ $<
 
 clean:
-	$(RM) $(OBJ)
-
-oclean:
-	$(RM) $(OBJ)
-
-fclean: clean oclean
-	$(RM) $(NAME)
-
-re: fclean all
-
-.PHONY: all clean oclean fclean re
+    rm -f program1 program2 program3
