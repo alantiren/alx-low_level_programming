@@ -1,25 +1,25 @@
 # Name of the executable
 EXECUTABLE := school
 
-# Compiler to be used
-CC := gcc
+# Compilation flags (none specified in this case)
+CFLAGS :=
 
 # Source files
-SRC := main.c school.c
+SRCS := main.c school.c
 
 # Object files (automatically generated from source files)
-OBJS := $(SRC:.c=.o)
+OBJS := $(SRCS:.c=.o)
 
 # Rule for building the executable
 all: $(EXECUTABLE)
 
 # Rule for linking the object files and generating the executable
 $(EXECUTABLE): $(OBJS)
-	$(CC) $(OBJS) -o $@
+	gcc $(CFLAGS) $(OBJS) -o $@
 
 # Rule for compiling individual source files into object files
 %.o: %.c
-	$(CC) -c $< -o $@
+	gcc $(CFLAGS) -c $< -o $@
 
 # Clean rule to remove generated files
 clean:
