@@ -1,19 +1,5 @@
-# Compiler to be used
-CC := gcc
+CC = gcc
+SRC = main.c holberton.c
 
-# Source files
-SRC := main.c holberton.c
-
-# Name of the executable
-EXECUTABLE := holberton
-
-# Rule for building the executable
-all: $(EXECUTABLE)
-
-# Rule for linking the object files and generating the executable
-$(EXECUTABLE): $(SRC)
-	$(CC) $(SRC) -o $(EXECUTABLE)
-
-# Clean rule to remove the executable
-clean:
-	rm -f $(EXECUTABLE)
+all: $(SRC) m.h
+	$(CC) $(SRC) -o holberton

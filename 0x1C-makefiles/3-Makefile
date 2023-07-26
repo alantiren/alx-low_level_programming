@@ -1,36 +1,20 @@
-# Compiler to be used
 CC = gcc
-
-# Source files
-SRC = holberton.c main.c
-
-# Object files (automatically generated from source files)
-OBJ = $(SRC:%.c=%.o)
-
-# Name of the executable
+SRC = main.c holberton.c
+OBJ = $(SRC:.c=.o)
 NAME = holberton
-
-# Program to delete files
 RM = rm -f
 
-# Rule for compiling individual source files into object files
-%.o: %.c m.h
-	$(CC) -c -o $@ $<
-
-# Rule to build the executable
 all: $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
 
-# Rule to clean up Emacs and Vim temporary files and the executable
+.PHONY: clean oclean fclean
+
 clean:
 	$(RM) *~ $(NAME)
 
-# Rule to remove object files
 oclean:
 	$(RM) $(OBJ)
 
-# Rule to clean up Emacs and Vim temporary files, the executable, and object files
 fclean: clean oclean
 
-# Rule to force recompilation of all source files
 re: oclean all

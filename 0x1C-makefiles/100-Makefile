@@ -1,38 +1,15 @@
-# Compiler to be used
 CC = gcc
-
-# Source files
 SRC = holberton.c main.c
-
-# Object files (automatically generated from source files)
-OBJ = $(SRC:%.c=%.o)
-
-# Name of the executable
+OBJ = $(SRC:.c=.o)
 NAME = holberton
-
-# Program to delete files
-RM = rm -f
-
-# Your favorite compiler flags
 CFLAGS = -Wall -Werror -Wextra -pedantic
 
-# Phony targets to ensure they always execute regardless of file existence
 .PHONY: all clean oclean fclean re
-
-# Rule to build the executable
-all: m.h $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
-
-# Rule to remove Emacs and Vim temporary files and the executable
+all: $(OBJ) m.h
+	$(CC) $(OBJ) -o $(NAME)
 clean:
 	$(RM) *~ $(NAME)
-
-# Rule to remove object files
 oclean:
 	$(RM) $(OBJ)
-
-# Rule to clean up Emacs and Vim temporary files, the executable, and object files
 fclean: clean oclean
-
-# Rule to force recompilation by performing fclean and then rebuilding the executable
-re: fclean all
+re: oclean all
