@@ -1,14 +1,14 @@
-# Name of the executable
-NAME := school
-
 # Compiler to be used
 CC := gcc
 
 # Source files
-SRC := main.c school.c
+SRC := main.c holberton.c
 
 # Object files (automatically generated from source files)
-OBJ := $(SRC:.c=.o)
+OBJ := $(SRC:%.c=%.o)
+
+# Name of the executable
+NAME := holberton
 
 # Rule for building the executable
 all: $(NAME)
@@ -18,9 +18,12 @@ $(NAME): $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
 
 # Rule for compiling individual source files into object files
-%.o: %.c
-	$(CC) -c $< -o $@
+main.o: main.c m.h
+	$(CC) -c -o $@ $<
 
-# Clean rule to remove generated files
+holberton.o: holberton.c m.h
+	$(CC) -c -o $@ $<
+
+# Clean rule to remove the executable and object files
 clean:
-	rm -f $(OBJ) $(NAME)
+	rm -f $(NAME) $(OBJ)

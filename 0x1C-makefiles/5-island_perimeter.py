@@ -1,40 +1,28 @@
 #!/usr/bin/python3
+"""
+Module for perimeter of island
+"""
 
 def island_perimeter(grid):
     """
     Function to calculate the perimeter of an island described in grid.
 
     Args:
-        grid (List[List[int]]): A list of lists of integers representing the grid.
-
-    Returns:
-        int: The perimeter of the island.
+        grid (list): A list of lists of integers representing the grid.
     """
-    rows = len(grid)
-    cols = len(grid[0])
-    perimeter = 0
 
-    for row in range(rows):
-        for col in range(cols):
-            if grid[row][col] == 1:
-                perimeter += 4  # Count all sides initially
+    width = len(grid[0])
+    height = len(grid)
+    edges = 0
+    size = 0
 
-                # Check the left neighbor
-                if col > 0 and grid[row][col - 1] == 1:
-                    perimeter -= 2  # Subtract 2 because they share an edge
+    for i in range(height):
+        for j in range(width):
+            if grid[i][j] == 1:
+                size += 1
+                if j > 0 and grid[i][j - 1] == 1:
+                    edges += 1
+                if i > 0 and grid[i - 1][j] == 1:
+                    edges += 1
 
-                # Check the top neighbor
-                if row > 0 and grid[row - 1][col] == 1:
-                    perimeter -= 2  # Subtract 2 because they share an edge
-
-    return perimeter
-# Test the function with the given example
-if __name__ == "__main__":
-    grid = [
-        [0, 0, 0, 0, 0, 0],
-        [0, 1, 0, 0, 0, 0],
-        [0, 1, 0, 0, 0, 0],
-        [0, 1, 1, 1, 0, 0],
-        [0, 0, 0, 0, 0, 0]
-    ]
-    print(island_perimeter(grid))
+    return size * 4 - edges * 2

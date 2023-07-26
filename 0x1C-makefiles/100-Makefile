@@ -1,38 +1,38 @@
-# Name of the executable
-NAME := school
-
 # Compiler to be used
-CC := gcc
-
-# Compiler flags
-CFLAGS := -Wall -Werror -Wextra -pedantic
+CC = gcc
 
 # Source files
-SRC := main.c school.c
+SRC = holberton.c main.c
 
 # Object files (automatically generated from source files)
-OBJ := $(SRC:.c=.o)
+OBJ = $(SRC:%.c=%.o)
 
-# Rule for building the executable
-all: $(NAME)
-# Rule for linking the object files and generating the executable
-$(NAME): $(OBJ)
-	$(CC) -o $@ $(OBJ)
-# Rule for compiling individual source files into object files
-.c.o:
-	$(CC) $(CFLAGS) -c $< -o $@
-# Clean rule to remove Emacs and Vim temporary files and the executable
+# Name of the executable
+NAME = holberton
+
+# Program to delete files
+RM = rm -f
+
+# Your favorite compiler flags
+CFLAGS = -Wall -Werror -Wextra -pedantic
+
+# Phony targets to ensure they always execute regardless of file existence
+.PHONY: all clean oclean fclean re
+
+# Rule to build the executable
+all: m.h $(OBJ)
+	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+
+# Rule to remove Emacs and Vim temporary files and the executable
 clean:
-	$(RM) $(NAME) *~
+	$(RM) *~ $(NAME)
+
 # Rule to remove object files
 oclean:
 	$(RM) $(OBJ)
-# Rule to remove Emacs and Vim temporary files, the executable, and object files
+
+# Rule to clean up Emacs and Vim temporary files, the executable, and object files
 fclean: clean oclean
-# Rule to force recompilation of all source files
+
+# Rule to force recompilation by performing fclean and then rebuilding the executable
 re: fclean all
-# Check if the m.h header file exists
-ifeq ("$(wildcard m.h)","")
-$(error m.h header file not found)
-endif
-.PHONY: all clean oclean fclean re
