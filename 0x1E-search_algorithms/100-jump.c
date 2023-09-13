@@ -1,50 +1,5 @@
-#include <stdio.h>
 #include <math.h>
 #include "search_algos.h"
-
-/**
- * jump_search - Searches for a value in a sorted array using Jump Search
- * @array: Pointer to the first element of the array to search in
- * @size: Number of elements in the array
- * @value: The value to search for
- *
- * Return: The index where the value is located, or -1 if not found
- */
-int jump_search(int *array, size_t size, int value)
-{
-if (array == NULL)
- return (-1);
-
-int step = (int)sqrt(size);
-int prev = 0;
-
-printf("Value checked array[%d] = [%d]\n", prev, array[prev]);
-
-while (array[prev] < value)
-{
-prev = step;
-step += (int)sqrt(size);
-if (prev >= (int)size)
-break;
-
-printf("Value checked array[%d] = [%d]\n", prev, array[prev]);
-}
-
-int left = prev - step + 1;
-int right = prev;
-
-printf("Value found between indexes [%d] and [%d]\n", left, right);
-
-for (int i = left; i <= right && i < (int)size; i++)
-{
-printf("Value checked array[%d] = [%d]\n", i, array[i]);
-
-if (array[i] == value)
-return i;
-}
-
-return (-1);
-}
 
 /**
  * minimum_value - finds the minimum of two values
@@ -58,4 +13,48 @@ size_t minimum_value(size_t a, size_t b)
 if (b < a)
 return (b);
 return (a);
+}
+
+/**
+ * jump_search - Searches for a value in a sorted array using Jump Search
+ * @array: Pointer to the first element of the array to search in
+ * @size: Number of elements in the array
+ * @value: The value to search for
+ *
+ * Return: The index where the value is located, or -1 if not found
+ */
+int jump_search(int *array, size_t size, int value)
+{
+size_t l, r, jump;
+int val;
+
+if (array != NULL && size > 0)
+{
+jump = sqrt(size);
+l = 0;
+r = jump;
+val = array[l];
+printf("Value checked array[%lu] = [%d]\n", l, val);
+while (r < size && val < value)
+{
+if (array[r] >= value)
+break;
+l += jump;
+r += jump;
+val = array[l];
+printf("Value checked array[%lu] = [%d]\n", l, val);
+}
+if (l >= size || val > value)
+return (-1);
+printf("Value found between indexes [%lu] and [%lu]\n", l, r);
+while (l <= minimum_value(size - 1, r) && val <= value)
+{
+val = array[l];
+printf("Value checked array[%lu] = [%d]\n", l, val);
+if (val == value)
+return (l);
+l++;
+}
+}
+return (-1);
 }

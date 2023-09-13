@@ -1,6 +1,20 @@
-#include <stdio.h>
 #include <math.h>
 #include "search_algos.h"
+
+/**
+ * move_forward - moves a list forward until the index matches a desired
+ * index, or the last node in the list
+ * @list: list to move forward
+ * @index: desired index
+ *
+ * Return: node with desired index, or last node in the list
+ */
+listint_t *move_forward(listint_t *list, size_t index)
+{
+while (list->next != NULL && list->index < index)
+list = list->next;
+return (list);
+}
 
 /**
  * jump_list - Searches for a value in a sorted list using Jump search
