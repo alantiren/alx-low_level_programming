@@ -45,3 +45,17 @@ return i;
 
 return (-1);
 }
+
+/**
+ * minimum_value - finds the minimum of two values
+ * @a: first value to compare
+ * @b: second value to compare
+ *
+ * Return: The smaller of the two values, or a if equal
+ */
+size_t minimum_value(size_t a, size_t b)
+{
+if (b < a)
+return (b);
+return (a);
+}
