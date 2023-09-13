@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include "search_algos.h"
 
 /**
@@ -9,7 +8,6 @@
  *
  * Return: The first index where the value is located, or -1 if not found
  */
-
 int linear_search(int *array, size_t size, int value)
 {
 size_t i;
